@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block sidebar %}
+
+<div class='d-flex mt-3 mb-2'>
+    <form method="GET" action="{% url 'projectStore:projectList'%}" class="d-flex">
+        <input class="form-control me-sm-2" name='q' type="text" placeholder="Search courses...">
+    </form>
+</div>
+               
+
+<div>
+    <a class="text-decoration-none" href="{% url 'projectStore:department'%}">All Courses</a>
+</div>
+<hr>
+
+<div>
+    {% for department in dept  %}
+    
+        <div>
+            <a class="text-decoration-none" href="{% url 'projectStore:courses' department.name  %}?q={{department.name}}">
+                {{department.name}}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock sidebar %}
+
+
+{% block content %}
+
+<form method="POST" action =''>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-3">
+        <div class="col-3 mt-2  mb-2">
+            {{ form.name|as_crispy_field }}
+        </div>
+        <div class="col-3 mt-2  mb-2">
+            {{ form.title|as_crispy_field }}
+        </div>
+        <div class="col-3 mt-2  mb-2">
+      
+            {{ form.phone|as_crispy_field }}
+        </div>
+        <div class="col-3 mt-2  mb-2">
+            {{ form.email|as_crispy_field }}
+        </div>
+            {{ form.message|as_crispy_field }}
+            <div class="col-2 mt-2  mb-2">
+            <button type = 'submit' class="btn btn-success"> Submit </button>
+            </div>
+        </div>
+    </div>
+
+</form>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+<h1>Contact Us</h1>
+<h4>  Contact us directly if you have question  </h4>
+<p>
+    Please write your name, email address, phone number  and a message below if you have any questions.
+    One of our staff members will be happy to contact you directly and answer your questions as soon as possible. 
+</p>

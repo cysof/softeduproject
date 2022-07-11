@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>  
+
+        <!--Begging of Sidebar -->
+        
+    <body>
+
+
+        {% block sidebar %}
+            <div class='d-flex mt-3 mb-2'>
+                <form method="GET" action="{% url 'projectStore:projectList'%}" class="d-flex">
+                    <input class="form-control me-sm-2" name='q' type="text" placeholder="Search courses...">
+                </form>
+            </div>
+                           
+
+            <div>
+                <a class="text-decoration-none" href="{% url 'projectStore:department'%}">All Courses</a>
+            </div>
+            <hr>
+
+            <div>
+                {% for department in dept  %}
+                
+                    <div>
+                        <a class="text-decoration-none" href="{% url 'projectStore:courses' department.name  %}?q={{department.name}}">
+                            {{department.name}}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endblock sidebar %}
+        <!--End of Sidebar-->
+
+
+
+
+        <!--Begging of Main content-->
+        {% block content %}
+
+        <div class="card bg-light ms-4 mc-4 mb-4 min-vh-100">
+            <div class="card-header d-flex justify-content-center">THOUSANDS OF RESEARCH PROJECT TOPICS ON EDUCATION</div>
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-center ">Project Topics </h4>
+
+            
+            <!--looping through the list of project Topics-->
+                {% for project in list_of_project  %}
+            <p class="card-text">
+                <li class="list-unstyled list-group-item d-flex justify-content- aling-items-center">
+                    
+                    <a class="text-decoration-none" href="{{project.get_absolute_url}}">         
+                        {{project.topic}}
+                        <p>{{ project.content | slice:":400" }}...</p>
+                    </a>
+                </li>
+            </p>
+
+                <div class="text">
+                    <small>{{project.department.name}}</small>
+                </div>
+
+                <small>
+                    {{project.type_of_work}} |
+                    numbers of Pages: {{project.pages}} |
+                    Numbers of Chapter: {{project.chapters}}
+                    
+                </small>
+        
+            <hr>
+            
+            {% endfor %}
+            <!--end of loop for the  list of project-->
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+
+            {% if list_of_project.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo First Page</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{list_of_project.previous_page_number}}">Previouse Page</a></li>
+            
+            {% endif %}
+
+            <li class="page-item disabled"><a class="page-link " href="#"> Page{{list_of_project.number}} of {{list_of_project.paginator.num_pages}}</a></li>
+
+            {% if list_of_project.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{list_of_project.next_page_number}}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{list_of_project.paginator.num_pages}}">Last Page &raquo</a></li>
+            
+            {% endif %}
+        </ul>
+    </nav>
+        </div>
+
+            
+        {% endblock content %}
+   <!--End of main content-->
+    </body>
+</html>
+

@@ -1,0 +1,44 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'projectStore:home' %}">EasyProject</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'projectStore:home' %}">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'projectStore:projectList'%}">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'projectStore:department'%}">Departments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'projectStore:hirewriter'%}">Hirw A Writer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'projectStore:payment'%}">Payment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contactus:contactform'%}">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'projectStore:about'%}">About Us</a>
+          </li>
+          </ul>
+        <form class="d-flex" method="GET" action="{% url 'projectStore:projectList'%}">
+          <input class="form-control me-sm-2" type="text" name='q' placeholder="Search">
+    
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+  

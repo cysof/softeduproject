@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+
+        {% block sidebar %}
+        
+        {% endblock sidebar %}
+
+        
+
+        {% block content %}
+        
+        <h1><a class="text-decoration-none" href="{% url 'projectStore:projectList'%}"> {{ object.topic }}</a></h1>
+        Department:{{project.department.name}}: &nbsp;
+        {% for department in department.departments.all  %}
+            < a href="#">{{department.name}}</a>&nbsp;
+        {% endfor %}
+        <hr>
+        <p>{{ object.content }}</p>
+        {% endblock content %}
+    </body>
+</html>
+
+Categories:&nbsp;
+{% for category in post.categories.all %}
+<a href="{% url 'blog_category' category.name %}">
+    {{ category.name }}
+</a>&nbsp;
+{% endfor %}

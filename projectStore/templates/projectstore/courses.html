@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Courses</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block content %}
+        
+
+        <h1>Departments:{{depts}}</h1>
+
+        {% for project in  category_project%}
+
+        <li class="list-unstyled list-group-item d-flex justify-content- aling-items-center"><h2>{{project.topic}}</h2></li>
+        <a class="text-decoration-none" href="{{project.get_absolute_url}}"> {{ project.content | slice:":400" }}...</a>
+        <div>
+        <small>
+            {{project.type_of_work}} |
+            numbers of Pages: {{project.pages}} 
+            Numbers of Chapter: {{project.chapters}}
+            
+        </small>
+    </div>
+        <hr>
+{% endfor %}
+
+        
+        
+        {% endblock content %}
+        
+       
+    </body>
+</html>

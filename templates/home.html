@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+
+
+        {% block sidebar %}
+        <div class='d-flex mt-3 mb-2'>
+            <form method="GET" action="{% url 'projectStore:projectList'%}" class="d-flex">
+                <input class="form-control me-sm-2" name='q' type="text" placeholder="Search courses...">
+            </form>
+        </div>
+                       
+
+        <div>
+            <a class="text-decoration-none" href="{% url 'projectStore:department'%}">All Courses</a>
+        </div>
+        <hr>
+
+        <div>
+            {% for department in dept  %}
+            
+                <div>
+                    <a class="text-decoration-none" href="{% url 'projectStore:courses' department.name  %}?q={{department.name}}">{{department.name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% endblock sidebar %}
+        
+            
+            
+              
+        {% block content %}
+        <div class= 'container'>
+            <div class='row'>
+                <div class='col-4'>
+
+                    <!--BEGING OF CARD TOPICS-->
+                    <div class="card bg-light ms-0 mc-4 mb-4">
+                        <div class="card-header">Serach TOPICS</div>
+                        <div class="card-body">
+                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                  <h4 class="card-title"></h4>
+                                  <p class="card-text">All Project, posted here are purely Ready-made Projects.
+                                      with documentation and well referenced.
+                                      <p>You can still wish to hire a writer. Then explore hire a writer <a href="{% url 'projectStore:hirewriter' %}">section</a> and
+                                          get in touch with our well qualified writers.
+                                      </p>
+                                  </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--THE END OF CARD ONE-->
+
+<!--THE BEGING OF CARD TWO-->
+                <div class='col-4'>
+                    <div class="card bg-light ms-0 mc-4 mb-4">
+                        <div class="card-header">Payment</div>
+                        <div class="card-body">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                                  <h4 class="card-title">How make to Payment</h4>
+                                  <p class="card-text">
+                                      All Payment  should be make through PROVIDED <a class="text-decoration-none" href="{% url 'projectStore:payment'%}">BANK Details.</a>
+                                    Point Of Sale(POS) Payments are accepted<br>
+                                    And the use of USSD Code.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+<!---THE ENFD OF CARD TWO-->
+
+                <div class='col-4'>
+                    <div class="card bg-light ms-0 mc-4 mb-4">
+                        <div class="card-header">We Deliver</div>
+                        <div class="card-body">
+                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                  <h4 class="card-title">How we Deliver</h4>
+                                  <p class="card-text">After full payment, the project will be sent to your email within 10 minutes after payment is confirmed.
+                                  </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card bg-light ms-0 mc-4 mb-4">
+                    <div class="card-header">FIND THE BEST RESEARCH PROJECT TOPICS AND PROJECT TOPICS ON EDUCATION On Eduproject.com.ng</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Eduproject.com.ng Inc. is a web based company that provides research project writing guides/tips, 
+                            data analysis research writing jobs and research project topics with available materials. With our 
+                            vast data base, students can have access to numerous term papers, Seminar papers, essays and 
+                            contemporary project topics and materials in accounting and finance, business administration 
+                            and lots more..
+                        </p>
+                    </div>
+                </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row">
+                
+                <div class='col-4'>
+                    <div class="card bg-light ms-0 mc-4 mb-4">
+                        <div class="card-header">FACEBOOK</div>
+                        <div class="card-body">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                                  <h4 class="card-title">How make to Payment</h4>
+                                  <p class="card-text">
+                                      <em>You are advised to choose a project topic, get an approval from your supervisor before buying.
+                                    </em>
+                                    <p>
+                                      All Payment  should be make through the UBA bank details that will be provided to all project details
+                                    </p>
+                                      <p>Trafers to the bank account, use of POS is accepted too and the use of USSD Code</p>
+                                  </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class='col-4'>
+                    <div class="card bg-light ms-0 mc-4 mb-4">
+                        <div class="card-header">Payment</div>
+                        <div class="card-body">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                                  <h4 class="card-title">How make to Payment</h4>
+                                  <p class="card-text">
+                                      <em>You are advised to choose a project topic, get an approval from your supervisor before buying.
+                                    </em>
+                                    <p>
+                                      All Payment  should be make through the UBA bank details that will be provided to all project details
+                                    </p>
+                                      <p>Trafers to the bank account, use of POS is accepted too and the use of USSD Code</p>
+                                  </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class='col-4'>
+                    <div class="card bg-light ms-0 mc-4 mb-4">
+                        <div class="card-header">Payment</div>
+                        <div class="card-body">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                                  <h4 class="card-title">How make to Payment</h4>
+                                  <p class="card-text">
+                                      <em>You are advised to choose a project topic, get an approval from your supervisor before buying.
+                                    </em>
+                                    <p>
+                                      All Payment  should be make through the UBA bank details that will be provided to all project details
+                                    </p>
+                                      <p>Trafers to the bank account, use of POS is accepted too and the use of USSD Code</p>
+                                  </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        
+            
+        {% endblock content %}
+   
+
+
+
+
+
+
+        
+        
+    </body>
+</html>
+
