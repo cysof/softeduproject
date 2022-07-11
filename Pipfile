@@ -9,7 +9,7 @@ django = "==4.0.4"
 django-mptt = "==0.13.4"
 pillow = "==8.4.0"
 django-crispy-forms = "==1.13.0"
-dj-database-url = "==0.5.0"
+dj-database-url = "*"
 django-heroku = "==0.3.1"
 django-storages = "==1.7.1"
 gunicorn = "==19.9.0"
@@ -32,6 +32,7 @@ chardet = "==3.0.4"
 django-js-asset = "==2.0.0"
 idna = "==2.7"
 sqlparse = "==0.4.2"
+python-decouple = "*"
 
 [dev-packages]
 
