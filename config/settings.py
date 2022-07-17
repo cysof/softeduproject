@@ -16,9 +16,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ggg)8ii@jxv5ykq15c-!)q47s7s4p7l1a%0hk%x%j_u%xvgak)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['softeduproject.herokuapp.com', 'http://127.0.0.1:8000/']
 
 
 # Application definition
@@ -74,13 +75,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
+
+DATABASES ={
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddbhvb2nkke7lt',
+        'USER': 'hjtynwopiqpmky',
+        'PASSWORD': '92fd13a80fb78348aabc92e59ecd8e7c0ab69394cd50cfcdf3290aba047d5e45',
+        'HOST': 'ec2-3-219-229-143.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
-
 
 
 
@@ -125,6 +136,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
 
