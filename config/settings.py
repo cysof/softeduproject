@@ -3,12 +3,9 @@ import django_heroku
 import dj_database_url
 from decouple import config
 from pathlib import Path
-import environ
 
-env = environ.Env()
 
-# read th .env file
-environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,11 +14,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in production secret!  
 #SECRET_KEY = ''
-SECRET_KEY = env('SECRET_KEY')
+
+SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['softeduproject.herokuapp.com', 'http://127.0.0.1:8000/']
 
@@ -35,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     
     'crispy_forms',
     
@@ -79,23 +79,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-    #'default': {
-     #   'ENGINE': 'django.db.backends.sqlite3',
-      #  'NAME': BASE_DIR / 'db.sqlite3',
-    #}
-#}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 DATABASES ={
-    'default': {
-        'ENGINE': env('DATABASE_NAME'),
-        'NAME': env ('DATABASE_NAME'),
-        'USER': env('DATABASE_USER_NAME'),
-        'PASSWORD': env ('DATABASE_PASSWORD'),
-        'HOST': env ('DATABASE_HOST'),
-        'PORT': env ('DATABASE_PORT'),
-    }
-}
+     'default': {
+         'ENGINE': config('DATABASE_NAME'),
+         'NAME': config ('DATABASE_NAME'),
+         'USER': config('DATABASE_USER_NAME'),
+         'PASSWORD': config ('DATABASE_PASSWORD'),
+         'HOST': config ('DATABASE_HOST'),
+         'PORT': config ('DATABASE_PORT'),
+     }
+ }
 
 
 
