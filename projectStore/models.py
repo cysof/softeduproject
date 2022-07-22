@@ -54,7 +54,7 @@ class Project(models.Model):
 
 class Contact(models.Model):
     name = models.CharField(max_length=250)
-    title = models.CharField(max_length=250)
+    subject = models.CharField(max_length=250)
     phone = models.CharField(max_length=11)
     email = models.EmailField()
     date = models.DateTimeField(auto_now_add=True)

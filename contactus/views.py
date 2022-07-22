@@ -13,7 +13,7 @@ def contactuspage(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
-            title =form.cleaned_data['title']
+            subject =form.cleaned_data['subject']
             phone = form.cleaned_data['phone']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']

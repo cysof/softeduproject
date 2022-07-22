@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,185 +9,158 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
     </head>
-    <body>
+<body class="d-flex flex-column min-vh-100">
 
+       
 
-        {% block sidebar %}
-        <div class='d-flex mt-3 mb-2'>
-            <form method="GET" action="{% url 'projectStore:projectList'%}" class="d-flex">
-                <input class="form-control me-sm-2" name='q' type="text" placeholder="Search courses...">
-            </form>
-        </div>
-                       
-
-        <div>
-            <a class="text-decoration-none" href="{% url 'projectStore:department'%}">All Courses</a>
-        </div>
-        <hr>
-
-        <div>
-            {% for department in dept  %}
             
-                <div>
-                    <a class="text-decoration-none" href="{% url 'projectStore:courses' department.name  %}?q={{department.name}}">{{department.name}}</a>
-                </div>
-            {% endfor %}
-        </div>
-        {% endblock sidebar %}
-        
-            
-            
-              
+         
+    <div class= 'container-fluid'>      
         {% block content %}
-        <div class= 'container'>
-            <div class='row'>
-                <div class='col-4'>
+            <div class="row">
+                <div class="card bg-light col-12 col-md-6 col-lg-4 ms-0 mc-4 mb-4 mt-3">
+                    <div class="card-header">SEARCH TOPICS</div>
+                    <!--END OF CARD-HEAD-->
+                    <div class="card-body">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                            <p class="card-text">All Project, posted here are purely Ready-made Projects.
+                                with documentation and well referenced.</p>
 
-                    <!--BEGING OF CARD TOPICS-->
-                    <div class="card bg-light ms-0 mc-4 mb-4">
-                        <div class="card-header">Serach TOPICS</div>
-                        <div class="card-body">
-                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                                  <h4 class="card-title"></h4>
-                                  <p class="card-text">All Project, posted here are purely Ready-made Projects.
-                                      with documentation and well referenced.
-                                      <p>You can still wish to hire a writer. Then explore hire a writer <a href="{% url 'projectStore:hirewriter' %}">section</a> and
-                                          get in touch with our well qualified writers.
-                                      </p>
-                                  </p>
-                            </div>
+                                <p>You can still wish to hire a writer. Then explore hire a writer <a href="{% url 'projectStore:hirewriter' %}">section</a> and
+                                    get in touch with our well qualified writers.
+                                </p>
                         </div>
-
                     </div>
                 </div>
-                <!--THE END OF CARD ONE-->
 
-<!--THE BEGING OF CARD TWO-->
-                <div class='col-4'>
-                    <div class="card bg-light ms-0 mc-4 mb-4">
-                        <div class="card-header">Payment</div>
-                        <div class="card-body">
-                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-                                  <h4 class="card-title">How make to Payment</h4>
-                                  <p class="card-text">
-                                      All Payment  should be make through PROVIDED <a class="text-decoration-none" href="{% url 'projectStore:payment'%}">BANK Details.</a>
-                                    Point Of Sale(POS) Payments are accepted<br>
-                                    And the use of USSD Code.
+                <!--END OF THE FIRST CARD-->
+
+                <div class="card bg-light col-12 col-md-6 col-lg-4 ms-0 mc-4 mb-4 mt-3">
+                    <div class="card-header">WHY SOFTEDUPROJECT</div>
+                    <!--END OF head FOR CARD-->
+
+                         <div class="card-body">
+                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                <p>
+                                    Why you and your friends, brother, sisters, relatives and other should 
+                                    choose and recomend softeduproject.
+                                    softeduproject Get your project delivered on time and is essential.
+                                    You cannot afford to turn in your project  past the deadline. 
+                                    That is why you must get free project topics, download research materials 
+                                    online from a company that guarantees to meet your deadline
+                              </p>
+                            </div>
+                        </div>
+                </div>
+                <!--THE END OF SECOND CARD-->
+
+
+                <div class="card bg-light col-12 col-md-6 col-lg-4 ms-0 mc-4 mb-4 mt-3">
+                    <div class="card-header">BECOME A WRITER</div>
+                    <!--END OF CARD-HEAD-->
+                    <div class="card-body">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                <p class="card-text">
+                                    You can choose to be come our writer by joining our team of writers.
+                                    write and get paid for writting on our plateform.
+                                    <br>
+                                    you must meet up with our requirements to become a writers.
+                                    <h5>coming soon...</h5>
                                 </p>
                             </div>
-                        </div>
-
-                    </div>
                 </div>
-<!---THE ENFD OF CARD TWO-->
+<!--THE END OF THIRD CARD-->
 
-                <div class='col-4'>
-                    <div class="card bg-light ms-0 mc-4 mb-4">
-                        <div class="card-header">We Deliver</div>
-                        <div class="card-body">
-                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                                  <h4 class="card-title">How we Deliver</h4>
-                                  <p class="card-text">After full payment, the project will be sent to your email within 10 minutes after payment is confirmed.
-                                  </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
+
+
             <div class="row">
-                <div class="card bg-light ms-0 mc-4 mb-4">
-                    <div class="card-header">FIND THE BEST RESEARCH PROJECT TOPICS AND PROJECT TOPICS ON EDUCATION On Eduproject.com.ng</div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Eduproject.com.ng Inc. is a web based company that provides research project writing guides/tips, 
+                    <div class="card-header text-center">FIND THE BEST RESEARCH PROJECT TOPICS AND MATERIALS ON SOFTEDUPROJECT</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                            SoftEduProject is a web based company that provides research project writing guides/tips, 
                             data analysis research writing jobs and research project topics with available materials. With our 
                             vast data base, students can have access to numerous term papers, Seminar papers, essays and 
-                            contemporary project topics and materials in accounting and finance, business administration 
-                            and lots more..
-                        </p>
-                    </div>
-                </div>
-
-                </div>
-
-
+                            contemporary project topics and materials in their field of studies
+                            </p>
+                        </div>
             </div>
+
 
 
 
             <div class="row">
-                
-                <div class='col-4'>
-                    <div class="card bg-light ms-0 mc-4 mb-4">
-                        <div class="card-header">FACEBOOK</div>
-                        <div class="card-body">
-                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-                                  <h4 class="card-title">How make to Payment</h4>
-                                  <p class="card-text">
-                                      <em>You are advised to choose a project topic, get an approval from your supervisor before buying.
-                                    </em>
-                                    <p>
-                                      All Payment  should be make through the UBA bank details that will be provided to all project details
-                                    </p>
-                                      <p>Trafers to the bank account, use of POS is accepted too and the use of USSD Code</p>
-                                  </p>
-                            </div>
-                        </div>
 
+
+                <div class="card bg-light col-12 col-md-6 col-lg-4 ms-0 mc-4 mb-4 mt-3">
+                    <div class="card-header">Hire A Writer</div>
+                    <!--END OF CARD-HEAD-->
+                    <div class="card-body">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                        <p class="card-text">
+                            You can <a href="{% url 'projectStore:hirewriter' %}">hire</a>
+                             project writer to write your given project topic
+                             from scratch with well conducted research and 
+                             field-tested hypothesis! We also run statistical data analysis
+                            of research data gathered from conducted field studies,
+                            and regression studies of data.                    
+                          </p>
+                        </div>
                     </div>
+
+
                 </div>
 
 
-                <div class='col-4'>
-                    <div class="card bg-light ms-0 mc-4 mb-4">
-                        <div class="card-header">Payment</div>
-                        <div class="card-body">
-                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-                                  <h4 class="card-title">How make to Payment</h4>
-                                  <p class="card-text">
-                                      <em>You are advised to choose a project topic, get an approval from your supervisor before buying.
-                                    </em>
-                                    <p>
-                                      All Payment  should be make through the UBA bank details that will be provided to all project details
-                                    </p>
-                                      <p>Trafers to the bank account, use of POS is accepted too and the use of USSD Code</p>
-                                  </p>
-                            </div>
+                <div class="card bg-light col-12 col-md-6 col-lg-4 ms-0 mc-4 mb-4 mt-3">
+                    <div class="card-header">Selecting Project Topics</div>
+                    <!--END OF CARD-HEAD-->
+                    <div class="card-body">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                            <p class="card-text">
+                                A good research topic is 
+                                important in final year project, but most often you are required 
+                                to select your own topics of interest. Before submitting project 
+                                topic to the Supervisor, make sure you know what your final project 
+                                should look like. Read the abstract and chapter One of the Project 
+                                Material on our website. Remember project title may not be exactly 
+                                the same as your research question but the title should clearly convey 
+                                the focus, purpose and meaning of your research.
+                            </p>
+
+
                         </div>
 
                     </div>
+
+
                 </div>
 
 
-                <div class='col-4'>
-                    <div class="card bg-light ms-0 mc-4 mb-4">
-                        <div class="card-header">Payment</div>
-                        <div class="card-body">
-                            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
-                                  <h4 class="card-title">How make to Payment</h4>
-                                  <p class="card-text">
-                                      <em>You are advised to choose a project topic, get an approval from your supervisor before buying.
-                                    </em>
-                                    <p>
-                                      All Payment  should be make through the UBA bank details that will be provided to all project details
-                                    </p>
-                                      <p>Trafers to the bank account, use of POS is accepted too and the use of USSD Code</p>
-                                  </p>
-                            </div>
-                        </div>
 
+                <div class="card bg-light col-12 col-md-6 col-lg-4 ms-0 mc-4 mb-4 mt-3">
+                    <div class="card-header">Download Project Material</div>
+                    <!--END OF CARD-HEAD-->
+                    <div class="card-body">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                        We are happy to offer instant delivery of projects listed on our website. 
+                        After making your payment. Text OR WhatsApp us the following details:
+                            <ol>
+                                <li>Payee Name</li>
+                                <li>Transfer Ref NO.</li>
+                                <li>Amount paid</li>
+                                <li>Payment Date</li>
+                            </ol>
+                            <a text-decoration-none href="{% url 'projectStore:payment'%}">Read more...</a>
                     </div>
+
+
                 </div>
+
 
             </div>
-        </div>
-
-
-        
-            
         {% endblock content %}
-   
+    </div>
 
 
 
@@ -200,6 +169,5 @@
 
         
         
-    </body>
+</body>
 </html>
-

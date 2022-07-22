@@ -2,8 +2,11 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config
-
+import environ
 from pathlib import Path
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,11 +16,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ggg)8ii@jxv5ykq15c-!)q47s7s4p7l1a%0hk%x%j_u%xvgak)'
-
+#SECRET_KEY = 'django-insecure-ggg)8ii@jxv5ykq15c-!)q47s7s4p7l1a%0hk%x%j_u%xvgak)'
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['softeduproject.herokuapp.com', 'http://127.0.0.1:8000/']
 
@@ -77,19 +79,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 #DATABASES = {
     #'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3',
+     #   'ENGINE': 'django.db.backends.sqlite3',
+      #  'NAME': BASE_DIR / 'db.sqlite3',
     #}
 #}
 
 DATABASES ={
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddbhvb2nkke7lt',
-        'USER': 'hjtynwopiqpmky',
-        'PASSWORD': '92fd13a80fb78348aabc92e59ecd8e7c0ab69394cd50cfcdf3290aba047d5e45',
-        'HOST': 'ec2-3-219-229-143.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': env('DATABASE_NAME'),
+        'NAME': env ('DATABASE_NAME'),
+        'USER': env('DATABASE_USER_NAME'),
+        'PASSWORD': env ('DATABASE_PASSWORD'),
+        'HOST': env ('DATABASE_HOST'),
+        'PORT': env ('DATABASE_PORT'),
     }
 }
 

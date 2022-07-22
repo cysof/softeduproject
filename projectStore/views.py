@@ -35,7 +35,7 @@ def category(request, depts):
 
 def projectList(request):
     dept = Department.objects.all()
-    p = Paginator(Project.objects.all().order_by('?'), 2)
+    p = Paginator(Project.objects.all().order_by('?'), 10)
     page = request.GET.get('page') 
     list_of_project = p.get_page(page)
     context = {'list_of_project':list_of_project, 

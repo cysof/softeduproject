@@ -17,6 +17,6 @@ class ProjectAdmin(admin.ModelAdmin):
     
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name', 'title', 'email', 'date' )
+    list_display = ('name', 'subject', 'email', 'date' )
     search_fields = ('title', 'name')
     
