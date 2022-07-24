@@ -21,7 +21,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = config['ALLOWED_HOSTS']
+ALLOWED_HOSTS = ['softeduproject.herokuapp.com', 'http://127.0.0.1:8000/']
 
 
 # Application definition
